@@ -1,0 +1,101 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>nz.ac.auckland</groupId>
+		<artifactId>uoa-parent</artifactId>
+		<version>1.8</version>
+	</parent>
+	
+	<groupId>nz.ac.auckland.composite</groupId>
+	<artifactId>composite-cxf-tools</artifactId>
+	<version>2.2-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>composite-cxf-tools</name>
+
+	<description>
+		Collection of the standard tool dependencies used for Apache CXF. These are needed when generating code in ant scripts.
+	</description>
+	
+	<properties>
+		<cxf.version>2.6.0</cxf.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>nz.ac.auckland.composite</groupId>
+			<artifactId>composite-logging-jcl</artifactId>
+			<version>[2,3)</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-tools-wsdlto-core</artifactId>
+			<version>[${cxf.version}]</version>
+			<exclusions>
+				<!-- Don't exclude jaxb-impl, see http://svn.apache.org/repos/asf/cxf/trunk/distribution/src/main/release/lib/WHICH_JARS -->
+				<exclusion>
+					<groupId>javax.xml.bind</groupId>
+					<artifactId>jaxb-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.xml.soap</groupId>
+					<artifactId>saaj-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<artifactId>geronimo-activation_1.1_spec</artifactId>
+					<groupId>org.apache.geronimo.specs</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>geronimo-annotation_1.0_spec</artifactId>
+					<groupId>org.apache.geronimo.specs</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>geronimo-javamail_1.4_spec</artifactId>
+					<groupId>org.apache.geronimo.specs</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>geronimo-stax-api_1.0_spec</artifactId>
+					<groupId>org.apache.geronimo.specs</groupId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.geronimo.specs</groupId>
+					<artifactId>geronimo-ws-metadata_2.0_spec</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.geronimo.specs</groupId>
+					<artifactId>geronimo-jaxws_2.1_spec</artifactId>
+				</exclusion>
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-tools-wsdlto-frontend-jaxws</artifactId>
+			<version>[${cxf.version}]</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-tools-wsdlto-databinding-jaxb</artifactId>
+			<version>[${cxf.version}]</version>
+			<exclusions>
+				<!-- Don't exclude jaxb-impl, see http://svn.apache.org/repos/asf/cxf/trunk/distribution/src/main/release/lib/WHICH_JARS -->
+			</exclusions>
+		</dependency>
+		<dependency>
+			<!-- Use javax.mail:mail instead of the geronimo version -->
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>[1.4,1.5)</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.activation</groupId>
+					<artifactId>activation</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+</project>
