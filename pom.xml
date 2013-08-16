@@ -9,7 +9,7 @@
 	
 	<groupId>nz.ac.auckland.composite</groupId>
 	<artifactId>composite-cxf-tools</artifactId>
-	<version>2.2-SNAPSHOT</version>
+	<version>2.2</version>
 	<packaging>jar</packaging>
 	<name>composite-cxf-tools</name>
 
@@ -25,7 +25,8 @@
 		<url>https://github.com/uoa-group-applications/composite-cxf-tools</url>
 		<connection>scm:git:https://github.com/uoa-group-applications/composite-cxf-tools.git</connection>
 		<developerConnection>scm:git:git@github.com:uoa-group-applications/composite-cxf-tools.git</developerConnection>
-	</scm>
+	  <tag>composite-cxf-tools-2.2</tag>
+  </scm>
 
 	<dependencies>
 
